@@ -27,7 +27,7 @@ do
     for((j=0; j<4-i-1; j++))
     do
 
-        if [ ${result[j]} -lt ${result[$((j+1))]} ]
+        if [ ${result[j]} -gt ${result[$((j+1))]} ]
         then
             temp=${result[j]}
             result[$j]=${result[$((j+1))]}
@@ -36,4 +36,4 @@ do
     done
 done
 
-echo Result in Decending Order: ${result[*]}
+echo Result in Ascending Order: ${result[*]}
