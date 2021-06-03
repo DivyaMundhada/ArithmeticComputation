@@ -20,3 +20,20 @@ do
 done
 
 echo Result stored in array:${result[*]}
+
+for ((i=0; i<4; i++))
+do
+
+    for((j=0; j<4-i-1; j++))
+    do
+
+        if [ ${result[j]} -lt ${result[$((j+1))]} ]
+        then
+            temp=${result[j]}
+            result[$j]=${result[$((j+1))]}
+            result[$((j+1))]=$temp
+        fi
+    done
+done
+
+echo Result in Decending Order: ${result[*]}
