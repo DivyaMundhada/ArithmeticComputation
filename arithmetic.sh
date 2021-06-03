@@ -10,3 +10,13 @@ dict['op2']=`expr  $(( $a * $b )) + $c `
 dict['op3']=`expr $c + $(( $a / $b )) `
 dict['op4']=`expr $(( $a % $b )) + $c `
 echo Result for various operations are: ${dict[*]}
+
+count=0
+
+for key in ${!dict[*]}
+do
+	temp=${dict[$key]}
+        result[((count++))]=$temp
+done
+
+echo Result stored in array:${result[*]}
